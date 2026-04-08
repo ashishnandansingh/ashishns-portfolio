@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashish Nandan Singh — SEO & AI Marketing Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1117;
+    --ink2: #3a3d4a;
+    --muted: #7a7f94;
+    --cream: #f8f6f1;
+    --white: #ffffff;
+    --accent: #1a4fd6;
+    --accent2: #0e9f7e;
+    --gold: #c8952a;
+    --border: #e2e0d8;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,246,241,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: var(--ink2); text-decoration: none; letter-spacing: 0.03em; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--ink); color: var(--white);
+    font-size: 13px; font-weight: 500;
+    padding: 8px 18px; border-radius: 4px;
+    text-decoration: none; transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 5vw 80px;
+    gap: 60px;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    color: var(--accent); text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 28px; height: 2px; background: var(--accent);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-desc {
+    font-size: 1.05rem; color: var(--ink2);
+    line-height: 1.8; margin-bottom: 36px;
+    max-width: 480px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--ink); color: var(--white);
+    padding: 13px 28px; border-radius: 4px;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none; transition: background .2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-outline {
+    border: 1.5px solid var(--ink); color: var(--ink);
+    padding: 13px 28px; border-radius: 4px;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none; transition: all .2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--white); }
+
+  /* HERO STATS */
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; margin-top: 48px;
+  }
+  .stat {
+    background: var(--white);
+    padding: 22px 20px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem; line-height: 1;
+    color: var(--ink); margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    width: 100%; max-width: 400px;
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: -12px; right: -12px;
+    width: 100%; height: 100%;
+    border: 1.5px solid var(--accent);
+    border-radius: 16px; z-index: -1;
+    opacity: 0.3;
+  }
+  .profile-ring {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 1.8rem; color: white;
+    margin-bottom: 16px;
+  }
+  .hero-card h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 4px; }
+  .hero-card p { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    padding: 5px 12px; border-radius: 20px;
+    background: var(--cream); border: 1px solid var(--border);
+    color: var(--ink2);
+  }
+  .pill.accent { background: #e8f0fe; border-color: #b3c8fb; color: var(--accent); }
+  .pill.green { background: #e6f7f2; border-color: #9de0ce; color: #0a7a5e; }
+  .avail-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500; color: var(--accent2);
+    margin-top: 20px;
+    padding: 6px 12px; background: #e6f7f2; border-radius: 20px;
+  }
+  .avail-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent2);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* SECTIONS */
+  section { padding: 90px 5vw; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 16px;
+  }
+  .section-sub { font-size: 1rem; color: var(--ink2); max-width: 560px; line-height: 1.8; }
+
+  /* SERVICES */
+  .services-bg { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; margin-top: 50px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 32px 28px;
+    transition: background .2s;
+    position: relative;
+  }
+  .service-card:hover { background: var(--cream); }
+  .service-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 16px;
+  }
+  .service-card h3 {
+    font-family: var(--serif); font-size: 1.15rem;
+    margin-bottom: 10px; color: var(--ink);
+  }
+  .service-card p { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+  .service-tag {
+    display: inline-block; margin-top: 14px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    color: var(--accent); text-transform: uppercase;
+  }
+
+  /* CASE STUDIES */
+  .case-studies-bg { background: var(--ink); }
+  .case-studies-bg .section-label { color: var(--gold); }
+  .case-studies-bg .section-title { color: var(--white); }
+  .case-studies-bg .section-sub { color: rgba(255,255,255,0.6); }
+  .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 50px; }
+  .cs-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 36px;
+    transition: border-color .2s, background .2s;
+  }
+  .cs-card:hover {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+  }
+  .cs-tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .cs-tag.ai { background: rgba(200,149,42,0.2); color: var(--gold); }
+  .cs-tag.seo { background: rgba(14,159,126,0.2); color: #4de8c4; }
+  .cs-card h3 {
+    font-family: var(--serif); font-size: 1.4rem;
+    color: var(--white); margin-bottom: 8px; line-height: 1.3;
+  }
+  .cs-industry {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .cs-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 20px 0; }
+  .cs-challenge-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-bottom: 8px;
+  }
+  .cs-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; }
+  .cs-results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+  .cs-result {
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px; padding: 16px;
+    text-align: center;
+  }
+  .cs-result-num {
+    font-family: var(--serif); font-size: 1.8rem;
+    color: var(--white); line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cs-result-num.gold { color: var(--gold); }
+  .cs-result-num.green { color: #4de8c4; }
+  .cs-result-label { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.4; }
+  .cs-work-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-bottom: 10px;
+  }
+  .cs-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .cs-work-tag {
+    font-size: 11px; padding: 4px 10px; border-radius: 4px;
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.65);
+    font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  .exp-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; margin-top: 50px; align-items: start; }
+  .exp-sidebar h3 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 12px; }
+  .exp-sidebar p { font-size: 14px; color: var(--ink2); line-height: 1.8; }
+  .exp-cards { display: flex; flex-direction: column; gap: 16px; }
+  .exp-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 26px;
+    position: relative;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; border-radius: 3px 0 0 3px;
+  }
+  .exp-card.current::before { background: var(--accent); }
+  .exp-card.past::before { background: var(--border); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+  .exp-role { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); }
+  .exp-date { font-size: 12px; color: var(--muted); font-weight: 500; white-space: nowrap; }
+  .exp-company { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 12px; }
+  .exp-points { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .exp-points li {
+    font-size: 13.5px; color: var(--ink2); padding-left: 16px;
+    position: relative; line-height: 1.6;
+  }
+  .exp-points li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 12px; top: 2px;
+  }
+
+  /* WHY HIRE */
+  .why-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px; margin-top: 50px;
+  }
+  .why-card {
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+  }
+  .why-num {
+    font-family: var(--serif); font-size: 2.2rem;
+    color: var(--accent); opacity: 0.3;
+    line-height: 1; margin-bottom: 10px;
+  }
+  .why-card h4 { font-family: var(--serif); font-size: 1rem; margin-bottom: 8px; }
+  .why-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-bg { background: var(--accent); }
+  .contact-inner {
+    max-width: 800px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .contact-bg .section-label { color: rgba(255,255,255,0.6); }
+  .contact-bg .section-title { color: var(--white); }
+  .contact-bg .section-sub { color: rgba(255,255,255,0.75); }
+  .contact-details { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; padding: 14px 18px;
+    color: var(--white); font-size: 14px; text-decoration: none;
+    transition: background .2s;
+  }
+  .contact-item:hover { background: rgba(255,255,255,0.18); }
+  .contact-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .contact-label { font-size: 11px; opacity: 0.6; display: block; margin-bottom: 1px; }
+  .contact-val { font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 28px 5vw;
+    font-size: 13px;
+  }
+  footer strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 5vw; }
+    .hero-visual { display: none; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .cs-grid { grid-template-columns: 1fr; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 580px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .cs-results { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp .6s ease both; }
+  .hero h1      { animation: fadeUp .6s .1s ease both; }
+  .hero-desc    { animation: fadeUp .6s .2s ease both; }
+  .hero-actions { animation: fadeUp .6s .3s ease both; }
+  .hero-stats   { animation: fadeUp .6s .4s ease both; }
+  .hero-visual  { animation: fadeUp .6s .2s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Ashish Nandan Singh</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#case-studies">Case Studies</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:ashishnandansingh@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div style="background: var(--cream);">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Available for Freelance Projects</div>
+      <h1>Senior SEO &amp; <em>AI-Driven</em> Digital Marketing Expert</h1>
+      <p class="hero-desc">15+ years helping global brands grow organic traffic, dominate search rankings, and build AI search visibility. From technical SEO to GA4 &amp; GTM — I deliver measurable ROI, not vanity metrics.</p>
+      <div class="hero-actions">
+        <a href="mailto:ashishnandansingh@gmail.com" class="btn-primary">Get a Free Audit</a>
+        <a href="#case-studies" class="btn-outline">View Case Studies</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Concurrent Clients</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3×</div>
+          <div class="stat-label">AI Traffic Growth</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="profile-ring">A</div>
+        <h3>Ashish Nandan Singh</h3>
+        <p>SEO Project Lead · Jaipur, India<br>Serving UK, Europe, USA &amp; Australia</p>
+        <div class="skill-pills">
+          <span class="pill accent">AI SEO</span>
+          <span class="pill accent">Technical SEO</span>
+          <span class="pill green">GA4 &amp; GTM</span>
+          <span class="pill green">CRO</span>
+          <span class="pill">On-Page SEO</span>
+          <span class="pill">Content Strategy</span>
+          <span class="pill">SEMrush · Ahrefs</span>
+          <span class="pill">WordPress</span>
+        </div>
+        <div class="avail-badge">
+          <div class="avail-dot"></div>
+          Open to new projects
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="section-inner">
+    <div class="section-label">What I Offer</div>
+    <h2 class="section-title">Services Built to Grow<br>Your Business Online</h2>
+    <p class="section-sub">Every service is backed by 15 years of hands-on experience and delivered with full transparency and measurable outcomes.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#e8f0fe;">🗂️</div>
+        <h3>SEO Project Management</h3>
+        <p>End-to-end ownership of your SEO strategy — from audit to execution to reporting. Ideal for businesses needing a seasoned manager without the overhead of a full-time hire.</p>
+        <span class="service-tag">Multi-client delivery</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#e6f7f2;">✍️</div>
+        <h3>Content Audit &amp; Optimisation</h3>
+        <p>Identify underperforming content, fix cannibalisation issues, align pages to search intent, and build a content strategy that compounds over time.</p>
+        <span class="service-tag">Intent mapping</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#fdf3e3;">📈</div>
+        <h3>SEO Strategy &amp; Organic Growth</h3>
+        <p>Full-funnel SEO strategy covering keyword research, competitive gap analysis, on-page implementation, and link authority building for sustainable rankings.</p>
+        <span class="service-tag">25–30% traffic growth avg.</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#f3e8fe;">🤖</div>
+        <h3>AI-Driven Marketing Execution</h3>
+        <p>Specialised in optimising websites for visibility in AI platforms — ChatGPT, Perplexity, and Gemini. Includes llms.txt, structured data, and LLM-friendly content architecture.</p>
+        <span class="service-tag">Next-gen SEO</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#e6f7f2;">📊</div>
+        <h3>GA4 &amp; GTM Implementation</h3>
+        <p>Full GA4 migration, custom event tracking, GTM container setup, e-commerce tracking, conversion goal configuration, and data layer implementation done right.</p>
+        <span class="service-tag">Zero data blind spots</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background:#e8f0fe;">🔬</div>
+        <h3>Research &amp; Data Analysis</h3>
+        <p>Deep-dive into your analytics data, competitor landscape, and market trends. Deliver actionable insights with clear dashboards and priority recommendations your team can act on.</p>
+        <span class="service-tag">SEMrush · Ahrefs · GSC</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="case-studies-bg" id="case-studies">
+  <div class="section-inner">
+    <div class="section-label">Proven Results</div>
+    <h2 class="section-title">Real Projects. Real Growth.</h2>
+    <p class="section-sub">Two recent case studies showing the depth of strategy and the scale of results delivered for international clients.</p>
+    <div class="cs-grid">
+
+      <!-- Case Study 1 -->
+      <div class="cs-card">
+        <span class="cs-tag ai">AI SEO</span>
+        <h3>AI Search Visibility for Electronics E-Commerce</h3>
+        <p class="cs-industry">Mobile &amp; Electronics · USA, Australia, New Zealand · Brands: Apple, Samsung, Nikon, OnePlus</p>
+        <hr class="cs-divider">
+        <div class="cs-challenge-label">The Challenge</div>
+        <p class="cs-text">The client had near-zero visibility in AI-generated answers (ChatGPT, Perplexity, Gemini) for competitive product queries. Weak brand presence, unstructured product pages, and a mixed reputation were limiting international reach and conversions.</p>
+        <div class="cs-challenge-label">What I Did</div>
+        <p class="cs-text">Implemented AI crawler accessibility and llms.txt guidance. Built LLM-friendly buying guides and structured Q&amp;A blocks. Added Product, Offer, and FAQ schema. Ran topical authority and E-E-A-T content strategy alongside technical speed and crawlability fixes.</p>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num gold">2–3×</div>
+            <div class="cs-result-label">Traffic growth from ChatGPT in 4–5 months</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num gold">Top</div>
+            <div class="cs-result-label">Rankings: "Buy Samsung S22 Ultra", "Buy Canon EOS 2000d"</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num gold">Higher</div>
+            <div class="cs-result-label">AOV from AI-referred visitors vs organic</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num gold">3 markets</div>
+            <div class="cs-result-label">USA, Australia &amp; NZ AI visibility expanded</div>
+          </div>
+        </div>
+        <div class="cs-work-label">Work Involved</div>
+        <div class="cs-tags">
+          <span class="cs-work-tag">AI Crawler Optimisation</span>
+          <span class="cs-work-tag">llms.txt</span>
+          <span class="cs-work-tag">Schema Markup</span>
+          <span class="cs-work-tag">LLM Content</span>
+          <span class="cs-work-tag">E-E-A-T Strategy</span>
+          <span class="cs-work-tag">Technical SEO</span>
+        </div>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="cs-card">
+        <span class="cs-tag seo">SEO &amp; CRO</span>
+        <h3>37% Traffic Growth for a UK Driving Courses Website</h3>
+        <p class="cs-industry">Driving Lessons &amp; Courses · United Kingdom · Local SEO + Conversion Optimisation</p>
+        <hr class="cs-divider">
+        <div class="cs-challenge-label">The Challenge</div>
+        <p class="cs-text">High traffic but low conversion rates. Weak CTA visibility, poor mobile UX, traffic concentrated on just a handful of pages, and insufficient phone enquiries despite strong existing demand.</p>
+        <div class="cs-challenge-label">What I Did</div>
+        <p class="cs-text">Repositioned CTAs above-the-fold, added sticky mobile call buttons, simplified the booking journey on mobile, rewrote service and location pages with local keyword targeting, and implemented click-to-call GTM tracking across all pages.</p>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num green">37.1%</div>
+            <div class="cs-result-label">Increase in total visitors (4–5 months)</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num green">25%</div>
+            <div class="cs-result-label">Increase in conversion rate</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num green">2×</div>
+            <div class="cs-result-label">Phone button clicks and direct call enquiries</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num green">Pg 1</div>
+            <div class="cs-result-label">"Intensive Driving Course Brighton" &amp; "Book Driving Course Leicester"</div>
+          </div>
+        </div>
+        <div class="cs-work-label">Work Involved</div>
+        <div class="cs-tags">
+          <span class="cs-work-tag">Local SEO</span>
+          <span class="cs-work-tag">CRO</span>
+          <span class="cs-work-tag">GTM Click Tracking</span>
+          <span class="cs-work-tag">Mobile UX</span>
+          <span class="cs-work-tag">Content Rewrite</span>
+          <span class="cs-work-tag">Internal Linking</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="section-label">Work History</div>
+    <h2 class="section-title">15 Years of Delivering<br>Measurable SEO Results</h2>
+    <div class="exp-grid">
+      <div class="exp-sidebar">
+        <h3>A track record across global markets</h3>
+        <p>From building foundational SEO skills at Wildnet Technologies to leading 30+ concurrent international projects at Dotsquares — every year has added depth, not just experience.</p>
+        <br>
+        <p>Clients served across UK, Europe, USA, Australia and New Zealand.</p>
+      </div>
+      <div class="exp-cards">
+        <div class="exp-card current">
+          <div class="exp-header">
+            <div class="exp-role">Digital Marketing Project Lead</div>
+            <div class="exp-date">July 2010 – Present</div>
+          </div>
+          <div class="exp-company">Dotsquares Pvt Ltd · Jaipur, India</div>
+          <ul class="exp-points">
+            <li>Led 30+ concurrent SEO projects for clients across UK, US, Australia, and Europe</li>
+            <li>Drove 25–30% organic traffic growth in 6 months through AI-powered SEO and data-driven strategy</li>
+            <li>End-to-end technical audits: crawlability, site speed, WP CMS, on-page SEO</li>
+            <li>Full GA4 and GTM implementation — conversion tracking, event setup, data layer</li>
+            <li>AI search visibility optimisation for LLM platforms including ChatGPT and Perplexity</li>
+            <li>Content audits, keyword research, search intent mapping, and content governance</li>
+          </ul>
+        </div>
+        <div class="exp-card past">
+          <div class="exp-header">
+            <div class="exp-role">Senior SEO Executive</div>
+            <div class="exp-date">June 2008 – June 2010</div>
+          </div>
+          <div class="exp-company">Wildnet Technologies · India</div>
+          <ul class="exp-points">
+            <li>Grew organic traffic by 20–30% through on-page SEO, keyword research, and link building</li>
+            <li>Improved conversion rates by ~15% through CRO strategy and analytics tracking</li>
+            <li>Managed WordPress site performance and content optimisation across multiple client accounts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE ME -->
+<section style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-label">Why Work With Me</div>
+    <h2 class="section-title">What Sets My Work Apart</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h4>AI SEO is not a buzzword here</h4>
+        <p>I have real case study results from optimising for ChatGPT, Perplexity, and Gemini — not theory.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h4>Europe &amp; UK market expertise</h4>
+        <p>15 years managing clients in UK, EU and APAC means I understand your market, not just SEO in general.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h4>Full-stack digital delivery</h4>
+        <p>SEO + GTM + GA4 + CRO + Content — no need to hire 4 freelancers. I cover the entire growth stack.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h4>Transparent, data-first reporting</h4>
+        <p>Every project delivers clear dashboards, prioritised recommendations, and honest updates — always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title" style="font-size: clamp(1.6rem,3vw,2.2rem);">Ready to grow your organic traffic?</h2>
+      <p class="section-sub" style="margin-bottom:0">Let's talk about your SEO goals. I offer a free initial audit for new enquiries.</p>
+    </div>
+    <div class="contact-details">
+      <a href="mailto:ashishnandansingh@gmail.com" class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <span class="contact-label">Email</span>
+          <span class="contact-val">ashishnandansingh@gmail.com</span>
+        </div>
+      </a>
+      <a href="tel:+918290090371" class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <span class="contact-label">Phone / WhatsApp</span>
+          <span class="contact-val">+91 82900 90371</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/ashishnandansingh/" target="_blank" class="contact-item">
+        <div class="contact-icon">in</div>
+        <div>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-val">linkedin.com/in/ashishnandansingh</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Ashish Nandan Singh</strong> · SEO &amp; AI Marketing Consultant · Jaipur, India · Serving clients globally</p>
+</footer>
+
+</body>
+</html>
